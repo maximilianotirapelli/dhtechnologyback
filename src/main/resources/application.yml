@@ -1,0 +1,39 @@
+spring:
+  main:
+    allow-bean-definition-overriding: true
+    allow-circular-references: true
+  servlet:
+    multipart:
+      enabled: true
+  datasource:
+    url: jdbc:mysql://db.ctd.academy:3306/1023c09_GRUPO4 #url de la db;
+    username: 1023c09_GRUPO4 # username de la db;
+    password: Iechei7L # password de la db;
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  jpa:
+    generate-ddl: true
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+        dialect: org.hibernate.dialect.MySQLDialect
+    database.platform: org.hibernate.dialect.MySQLDialect
+  server:
+    port: 8080
+  logging:
+    level:
+      root: DEBUG
+      org.springframework.web: INFO
+      org.hibernate: ERROR
+    pattern:
+      console: "%d{yyyy-MM-dd HH:mm:ss} [%highlight(%level)] [%cyan(%thread)] %yellow(%logger{15}) - %msg%n"
+
+application:
+  security:
+    jwt:
+      secret-key: puquDyskCdV1bq37TEQX5SQIUag+2G/XuffTDonL4C4=
+      expiration: 86400000 # a day
+      refresh-token:
+        expiration: 604800000 # 7 days
